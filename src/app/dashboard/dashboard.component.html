@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<div id="dashboard-wrapper">
+  <div id="left-speaker-wrapper" class="speaker-wrapper">
+    <div class="speaker-main"></div>
+  </div>
+  <div id="main-wrapper">
+    <div id="main">
+      <div id="touchscreen-wrapper">
+        <div (click)="changeTouchscreen('menu')" id="close-menu-div" *ngIf="touchscreenState != 'menu'">
+          <span class="material-symbols-outlined">cancel</span>
+        </div>
+        <div id="touchscreen-menu-div" *ngIf="touchscreenState=='menu'">
+          <div (click)="changeTouchscreen('map')" id="map-div" class="menu-icon-div"> </div>
+          <div (click)="changeTouchscreen('music')" id="music-div" class="menu-icon-div"> </div>
+          <div (click)="changeTouchscreen('phone')" id="phone-div" class="menu-icon-div"> </div>
+          <div (click)="changeTouchscreen('settings')" id="settings-div" class="menu-icon-div"> </div>
+          <div (click)="changeTouchscreen('calendar')" id="calendar-div" class="menu-icon-div"> </div>
+          <div (click)="changeTouchscreen('weather')" id="weather-div" class="menu-icon-div"> </div>
+        </div>
+        <div id="touchscreen-phone-div" *ngIf="touchscreenState=='phone'"></div>
+        <div id="touchscreen-music-div" *ngIf="touchscreenState=='music'"></div>
+        <div id="touchscreen-calendar-div" *ngIf="touchscreenState=='calendar'"></div>
+        <div id="touchscreen-map-div" *ngIf="touchscreenState=='map'"></div>
+        <div id="touchscreen-settings-div" *ngIf="touchscreenState=='settings'"></div>
+        <div id="touchscreen-weather-div" *ngIf="touchscreenState=='weather'"></div>
+      </div>
+      <div id="sliders-div">
+        <span id="slider-fan-icon" class="material-symbols-outlined">mode_fan</span>
+        <input [(ngModel)]="fanSliderValue" type="range" id="fanSlider" step="1" min="150" max="250" (change)="changeFanSlider(fanSliderValue)">
+        <span id="slider-noFan-icon" class="material-symbols-outlined">mode_fan_off</span>
+
+        <span id="slider-hot-icon" class="material-symbols-outlined">mode_heat</span>
+        <input [(ngModel)]="tempSliderValue" type="range" id="tempSlider" step="1" min="0" max="255" (change)="changeTempSlider(tempSliderValue)">
+        <span id="slider-cold-icon" class="material-symbols-outlined">ac_unit</span>
+      </div>
+    </div>
+  </div>
+  <div id="right-speaker-wrapper" class="speaker-wrapper">
+    <div class="speaker-main"></div>
+  </div>
+</div>
+
+<div id="dashboard-wrapper2">
+  <div class="filler"></div>
+  <div id="main-wrapper2">
+    <div class="AC">
+      <div class="ac-element"></div>
+      <div class="ac-element"></div>
+      <div class="ac-element"></div>
+      <div class="ac-element"></div>
+      <div class="ac-element-middle"></div>
+      <div class="ac-element"></div>
+      <div class="ac-element"></div>
+      <div class="ac-element-bottom"></div>
+    </div>
+    <div class="AC">
+      <div class="ac-element"></div>
+      <div class="ac-element"></div>
+      <div class="ac-element"></div>
+      <div class="ac-element"></div>
+      <div class="ac-element-middle"></div>
+      <div class="ac-element"></div>
+      <div class="ac-element"></div>
+      <div class="ac-element-bottom"></div>
+    </div>
+  </div>
+  <div class="filler">
+    {{touchscreenState}}
+  </div>
+</div>

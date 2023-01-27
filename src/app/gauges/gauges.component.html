@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+  <title>Gauges as Components</title>
+  <script src="gauge.min.js"></script>
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/seven-segment');
+  </style>
+</head>
+<body>
+
+<div id="dashboardWrapper">
+  <div id="dashboard">
+    <div class="smallGauge">
+      <radial-gauge #temp
+                    id="temperature"
+                    width="200"
+                    height="200"
+                    font-title-size="40"
+                    min-value="0"
+                    max-value="1"
+                    major-ticks="C,,H"
+                    minor-ticks="2"
+                    stroke-ticks="true"
+                    ticks-angle="90"
+                    start-angle="90"
+                    highlights='[
+            { "from": 0, "to": 0.125, "color": "rgba(20,20,255,.6)" },
+            { "from": 0.875, "to": 1, "color": "rgba(255,0,0,.6)" }
+        ]'
+                    color-plate="#222"
+                    color-major-ticks="#f5f5f5"
+                    color-minor-ticks="#ddd"
+                    color-title="#ccc"
+                    color-numbers="#eee"
+                    color-needle="red"
+                    color-needle-end="red"
+                    needle-shadow="false"
+                    needle-type="arrow"
+                    needle-start="15"
+                    needle-end="90"
+                    color-border-inner="red"
+                    color-border-inner-end="false"
+                    color-border-middle="#808080"
+                    color-border-middle-end="false"
+                    border-outer-width="15"
+                    color-border-outer="#c0c0c0"
+                    color-border-outer-end="#808080"
+                    value-box="false"
+                    color-value-box-shadow="red"
+                    color-value-text-shadow="red"
+                    animation-rule="linear"
+                    animation-duration="500"
+                    animated-value="true">
+      </radial-gauge>
+      <div id="tempIconDiv">
+        <img (click)="randomTemp()" id="tempIcon" src="./assets/images/temp.svg">
+      </div>
+    </div>
+    <div class="bigGauge">
+      <radial-gauge #tachometer
+                    id="tachometer"
+                    width="400"
+                    height="400"
+                    title="x1000 r/min"
+                    font-title-size="20"
+                    min-value="0"
+                    max-value="8"
+                    major-ticks="0,1,2,3,4,5,6,7,8"
+                    minor-ticks="2"
+                    stroke-ticks="true"
+                    highlights='[
+          { "from": 6, "to": 7, "color": "rgba(255,255,0,.6)" },
+          { "from": 7, "to": 8, "color": "rgba(255,0,0,.6)" }
+      ]'
+                    color-plate="#222"
+                    color-major-ticks="#f5f5f5"
+                    color-minor-ticks="#ddd"
+                    color-title="#ccc"
+                    color-numbers="#eee"
+                    color-needle="red"
+                    color-needle-end="red"
+                    needle-shadow="false"
+                    needle-type="arrow"
+                    needle-start="15"
+                    needle-end="90"
+                    color-border-inner="red"
+                    color-border-inner-end="false"
+                    color-border-middle="#808080"
+                    color-border-middle-end="false"
+                    border-outer-width="15"
+                    color-border-outer="#c0c0c0"
+                    color-border-outer-end="#808080"
+                    value-box="false"
+                    color-value-box-shadow="red"
+                    color-value-text-shadow="red"
+                    animation-rule="linear"
+                    animation-duration="500"
+                    animated-value="true">
+      </radial-gauge>
+      <div id="glowPlugIconDiv" class="iconDiv">
+        <img id="glowPlugIcon" (click)="changeGlowPlug()" src="./assets/images/glowPlug.svg">
+      </div>
+      <div id="engineIconDiv" class="iconDiv">
+        <img id="engineIcon" (click)="changeEngine()" src="./assets/images/engine.svg">
+      </div>
+      <div id="hoodIconDiv" class="iconDiv">
+        <img id="hoodIcon" (click)="changeHood()" src="./assets/images/hood.svg">
+      </div>
+      <div id="snowIconDiv" class="iconDiv">
+        <img id="snowIcon" (click)="changeSnow()" src="./assets/images/snow.svg">
+      </div>
+    </div>
+    <div id="mileageDiv">
+      <div id="rightArrowDiv" class="iconDiv">
+        <img id="rightArrowIcon" class="arrowIcon" (click)="goRight()" src="./assets/images/arrowRight.svg">
+      </div>
+      <div id="leftArrowDiv" class="iconDiv">
+        <img id="leftArrowIcon" class="arrowIcon" (click)="goLeft()" src="./assets/images/arrowLeft.svg">
+      </div>
+      <div id="mileageTripDiv"><span style="text-align: left">TRIP</span><span style="float: right">{{mileageTrip}}</span></div>
+      <div id="mileageTotalDiv"><span style="text-align: left">KM</span><span style="float: right">{{mileageTotal}}</span></div>
+    </div>
+    <div class="bigGauge">
+      <radial-gauge
+        id="speedometer"
+        #speedometer
+        width="400"
+        height="400"
+        title="km/h"
+        font-title-size="20"
+        min-value="0"
+        max-value="220"
+        major-ticks="0,20,40,60,80,100,120,140,160,180,200,220,240"
+        minor-ticks="4"
+        stroke-ticks="true"
+        highlights='[]'
+        color-plate="#222"
+        color-major-ticks="#f5f5f5"
+        color-minor-ticks="#ddd"
+        color-title="#ccc"
+        color-numbers="#eee"
+        color-needle="red"
+        color-needle-end="red"
+        needle-shadow="false"
+        needle-type="arrow"
+        needle-start="15"
+        needle-end="90"
+        color-border-inner="red"
+        color-border-inner-end="false"
+        color-border-middle="#808080"
+        color-border-middle-end="false"
+        border-outer-width="15"
+        color-border-outer="#c0c0c0"
+        color-border-outer-end="#808080"
+        value-int="2"
+        value-dec="0"
+        font-value-size="30"
+        font-value='Seven Segment'
+        color-value-text="#fff"
+        color-value-box-background="#000"
+        color-value-box-rect="#c0c0c0"
+        color-value-box-rect-end="#808080"
+        value-box="true"
+        color-value-box-shadow="red"
+        color-value-text-shadow="red"
+        animation-rule="linear"
+        animation-duration="500"
+        animated-value="true"
+        style="z-index: 5; position: relative">
+      </radial-gauge>
+      <div id="oilIconDiv" class="iconDiv">
+        <img id="oilIcon" (click)="changeOil()" src="./assets/images/oil.svg">
+      </div>
+      <div id="batteryIconDiv" class="iconDiv">
+        <img id="batteryIcon" (click)="changeBattery()" src="./assets/images/battery.svg">
+      </div>
+      <div id="seatbeltIconDiv" class="iconDiv">
+        <img id="seatbeltIcon" (click)="changeSeatbelt()" src="./assets/images/seatbelt.svg">
+      </div>
+      <div id="breakIconDiv" class="iconDiv">
+        <img id="breakIcon" (click)="changeBreak()" src="./assets/images/break.svg">
+      </div>
+    </div>
+    <div class="smallGauge">
+      <radial-gauge #fuel
+                    id="fuel"
+                    width="200"
+                    height="200"
+                    font-title-size="40"
+                    min-value="0"
+                    max-value="1"
+                    major-ticks="F,0.5,E"
+                    minor-ticks="2"
+                    stroke-ticks="true"
+                    ticks-angle="90"
+                    start-angle="180"
+                    highlights='[
+            { "from": 0, "to": 0.125, "color": "rgba(0,255,0,.6)" },
+            { "from": 0.875, "to": 1, "color": "rgba(255,0,0,.6)" }
+        ]'
+                    color-plate="#222"
+                    color-major-ticks="#f5f5f5"
+                    color-minor-ticks="#ddd"
+                    color-title="#ccc"
+                    color-numbers="#eee"
+                    color-needle="red"
+                    color-needle-end="red"
+                    needle-shadow="false"
+                    needle-type="arrow"
+                    needle-start="15"
+                    needle-end="90"
+                    color-border-inner="red"
+                    color-border-inner-end="false"
+                    color-border-middle="#808080"
+                    color-border-middle-end="false"
+                    border-outer-width="15"
+                    color-border-outer="#c0c0c0"
+                    color-border-outer-end="#808080"
+                    value-box="false"
+                    color-value-box-shadow="red"
+                    color-value-text-shadow="red"
+                    animation-rule="linear"
+                    animation-duration="500"
+                    animated-value="true">
+      </radial-gauge>
+      <div id="fuelIconDiv"  class="iconDiv">
+        <img (click)="randomFuel()" id="fuelIcon" src="./assets/images/fuel.svg">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="break"></div>
+<div id="controls">
+  <div class="sliderControl">
+    <input id="tempRange" type="range" step="0.01" min="0" max="1" [(ngModel)]="tempValue" (change)="changeTemperature(tempValue)">
+    <label for="tempRange">Coolant</label>
+  </div>
+
+  <div class="sliderControl">
+    <input id="tachoRange" type="range" step=".1" min="0" max="8" [(ngModel)]="tachoValue" (change)="changeTachometer(tachoValue)">
+    <label for="tachoRange">Tachometer</label>
+  </div>
+
+  <div class="sliderControl">
+    <input id="speedRange" type="range" step="1" min="0" max="220" [(ngModel)]="speedValue" (change)="changeSpeedometer(speedValue)">
+    <label for="speedRange">Speedometer</label>
+  </div>
+
+  <div class="sliderControl">
+    <input id="fuelRange" type="range" step="0.01" min="0" max="1" [(ngModel)]="fuelValue" (change)="changeFuel(fuelValue)">
+    <label for="fuelRange">Fuel</label>
+  </div>
+
+  <div class="buttonControl">
+    <button (click)="changeOil()">Oil</button>
+  </div>
+
+  <div class="buttonControl">
+    <button (click)="changeSeatbelt()">Seatbelt</button>
+  </div>
+
+  <div class="buttonControl">
+    <button (click)="changeBreak()">Break</button>
+  </div>
+
+  <div class="buttonControl">
+    <button (click)="changeBattery()">Battery</button>
+  </div>
+
+  <div class="buttonControl">
+    <button (click)="changeEngine()">Engine</button>
+  </div>
+
+  <div class="buttonControl">
+    <button (click)="changeSnow()">Snow</button>
+  </div>
+
+  <div class="buttonControl">
+    <button (click)="changeGlowPlug()">Glow Plug</button>
+  </div>
+
+  <div class="buttonControl">
+    <button (click)="changeHood()">Hood</button>
+  </div>
+
+  <div class="buttonControl">
+    <button (click)="goLeft()">Left</button>
+  </div>
+
+  <div class="buttonControl">
+    <button (click)="goRight()">Right</button>
+  </div>
+</div>
+</body>
+</html>

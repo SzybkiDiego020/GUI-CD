@@ -1,0 +1,281 @@
+#dashboard-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  margin: 30px 0 0 0;
+  width: 100%;
+  height: 400px;
+}
+
+#dashboard-wrapper2 {
+  display: grid;
+  grid-template-columns: .5fr 4fr .5fr;
+  width: 100%;
+  height: 200px;
+}
+
+.speaker-wrapper{
+  background: linear-gradient(to bottom, #a0a0a0, #303030);
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+#right-speaker-wrapper{
+  border-radius: 0 5% 5% 0;
+}
+
+#left-speaker-wrapper{
+  border-radius: 5% 0 0 5%;
+}
+
+.speaker-main {
+  border: 2px solid red;
+  width: 95%;
+  margin-top: 2%;
+  height: 95%;
+  border-radius: 10%;
+  background: url(../../assets/images/speaker.jpg) repeat top left fixed;
+  background-size: 66%;
+}
+
+#main-wrapper{
+  background: linear-gradient(to bottom, #a0a0a0, #303030);
+  padding: 5px;
+  border-radius: 2.8% 2.8% 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+#main-wrapper2{
+  background: linear-gradient(to bottom, #303030, #a0a0a0);
+  border-radius: 0 0 10% 15%;
+  display: flex;
+  width: 75%;
+  justify-content: center;
+  justify-self: center;
+}
+
+#main {
+  background-color: #0c0c0c;
+  border-radius: 5%;
+  width: 95%;
+  height: 95%;
+  margin-top: 1.25%;
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px 0 10px;
+}
+
+#touchscreen-wrapper{
+  border: 5px solid #202020;
+  border-radius: 5% 0 0 5%;
+  width: 80%;
+  height: 95%;
+}
+
+#touchscreen-menu-div, #touchscreen-phone-div, #touchscreen-music-div, #touchscreen-calendar-div,
+#touchscreen-map-div, #touchscreen-settings-div, #touchscreen-weather-div{
+  width: 100%;
+  height:100%;
+  border-radius: 4% 0 0 4%;
+
+}
+
+#touchscreen-menu-div{
+  background: url(../../assets/images/touchscreen_menu.jpg) no-repeat top center;
+  background-size: 100%;
+  display: flex;
+  gap: 10%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-evenly;
+}
+
+#touchscreen-phone-div{
+  background: url(../../assets/images/phone_menu.jpg) no-repeat center center;
+  background-size: 100%;
+}
+
+#touchscreen-music-div{
+  background: #202020 url(../../assets/images/music_menu.png) no-repeat center center;
+  background-size: 95%;
+}
+
+#touchscreen-calendar-div{
+  background: #202020 url(../../assets/images/calendar_menu.png) no-repeat center center;
+  background-size: contain;
+}
+
+#touchscreen-map-div{
+  background: #202020 url(../../assets/images/map_menu.jpg) no-repeat center center;
+  background-size: contain;
+}
+
+#touchscreen-settings-div{
+  background: #202020 url(../../assets/images/settings_menu.jpg) no-repeat center center;
+  background-size: contain;
+}
+
+#touchscreen-weather-div{
+  background: #202020 url(../../assets/images/weather_menu.jpg) no-repeat center center;
+  background-size: contain;
+}
+
+#close-menu-div{
+  position: relative;
+  left: 95%;
+  height: 0;
+}
+
+#close-menu-div span{
+  margin-top: 15px;
+  transform: scale(2);
+  color: red;
+  cursor: pointer;
+}
+
+.menu-icon-div {
+  flex-basis: 15%;
+  aspect-ratio: 1;
+  margin: 20px 30px 30px 30px;
+  border-radius: 25%;
+  cursor: pointer;
+}
+
+#phone-div{
+  background: url(../../assets/images/phone_icon.png) no-repeat top left;
+  background-size: 100%;
+}
+
+
+#map-div{
+  background: url(../../assets/images/map_icon.png) no-repeat top left;
+  background-size: 100%;
+}
+
+
+#settings-div{
+  background: url(../../assets/images/settings_icon.jpg) no-repeat top left;
+  background-size: 100%;
+}
+
+
+#weather-div{
+  background: url(../../assets/images/weather_icon.png) no-repeat top left;
+  background-size: 100%;
+}
+
+#music-div{
+  background: url(../../assets/images/music_ison.jpg) no-repeat top left;
+  background-size: 100%;
+}
+
+#calendar-div{
+  background: url(../../assets/images/calendar_icon.png) no-repeat top left;
+  background-size: 100%;
+}
+
+#sliders-div{
+  background-color: #101010;
+  border: 5px solid #202020;
+  border-radius: 0 15% 15% 0;
+  width: 20%;
+  height: 95%;
+}
+
+#tempSlider{
+  transform: rotate(270deg);
+  position: absolute;
+  top: 31%;
+  left: 69%;
+  width: 270px;
+  cursor: pointer;
+}
+
+#fanSlider{
+  transform: rotate(270deg);
+  position: absolute;
+  top: 31%;
+  left: 64%;
+  width: 270px;
+  cursor: pointer;
+}
+
+#slider-noFan-icon{
+  position: absolute;
+  top: 9%;
+  left: 72.1%;
+}
+
+#slider-fan-icon{
+  position: absolute;
+  top: 52%;
+  left: 72.1%;
+}
+
+#slider-cold-icon{
+  position: absolute;
+  top: 52%;
+  left: 77.1%;
+}
+
+#slider-hot-icon{
+  position: absolute;
+  top: 9%;
+  left: 77.1%;
+}
+
+#main2 {
+  border-radius: 5%;
+  width: 95%;
+  height: 90%;
+  margin-top: 1%;
+  display: flex;
+}
+
+.AC {
+  background-color: #0c0c0c;
+  width:50%;
+  border: 2px solid red;
+  border-radius: 15%;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 20px;
+}
+
+.AC:nth-child(1){
+  margin-right: 4px;
+}
+
+.AC:nth-child(2){
+  margin-left: 4px;
+}
+
+.ac-element{
+  border-bottom: 3px solid gray;
+  height: 7.5%;
+}
+
+.ac-element:nth-child(1){
+  margin-top:10px;
+}
+
+.ac-element-middle{
+  position: absolute;
+  margin-top: 4.3%;
+  align-self: center;
+  width: 7%;
+  height: 2.5%;
+  background-color: #202020;
+  border-radius: 30%;
+  border: 3px solid silver;
+}
+
+.ac-element-bottom{
+  border: none;
+}

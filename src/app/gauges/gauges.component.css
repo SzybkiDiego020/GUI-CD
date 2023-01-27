@@ -157,7 +157,25 @@ button {
   bottom: 55%;
 }
 
-#fuelIcon, #tempIcon, #oilIcon, #batteryIcon, #engineIcon, #breakIcon, #seatbeltIcon, #snowIcon, #glowPlugIcon, #hoodIcon {
+#rightArrowDiv {
+  position:absolute;
+  top:-400%;
+  left:50%;
+  z-index: 6;
+}
+
+#leftArrowDiv {
+  position:absolute;
+  top:-400%;
+  z-index: 5;
+}
+
+.arrowIcon{
+  aspect-ratio: 1;
+  width: 80px;
+}
+
+#fuelIcon, #tempIcon, #oilIcon, #batteryIcon, #engineIcon, #breakIcon, #seatbeltIcon, #snowIcon, #glowPlugIcon, #hoodIcon{
   aspect-ratio: 1;
   width: 40px;
 }

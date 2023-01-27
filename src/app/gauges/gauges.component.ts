@@ -1,7 +1,5 @@
-import {Component, HostListener, ViewChild} from '@angular/core';
-import { interval, Subscription } from 'rxjs';
-import {ActivatedRoute} from "@angular/router";
-
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {interval, Subscription} from "rxjs";
 
 const red = "invert(11%) sepia(95%) saturate(7155%) hue-rotate(15deg) brightness(105%) contrast(121%)";
 const white = "invert(100%) sepia(0%) saturate(7436%) hue-rotate(107deg) brightness(98%) contrast(96%)";
@@ -9,14 +7,12 @@ const blue = "invert(9%) sepia(100%) saturate(7238%) hue-rotate(247deg) brightne
 const green = "invert(76%) sepia(8%) saturate(3200%) hue-rotate(84deg) brightness(97%) contrast(67%)";
 const gray = "invert(13%) sepia(1%) saturate(6264%) hue-rotate(315deg) brightness(91%) contrast(76%)";
 const yellow = "invert(100%) sepia(100%) saturate(4807%) hue-rotate(358deg) brightness(105%) contrast(108%)";
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-gauges',
+  templateUrl: './gauges.component.html',
+  styleUrls: ['./gauges.component.css']
 })
-export class AppComponent {
-  title = 'GUI-CD';
+export class GaugesComponent implements OnInit {
 
   speedValue = 80;
   tachoValue = 4;
@@ -41,15 +37,17 @@ export class AppComponent {
   hood = false;
   mileageTrip = 761;
   mileageTotal = 123456;
-  direction = "left";
+  direction = "none";
   arrowOn = false;
   source = interval(500)
   subscription = new Subscription();
-  constructor(private route: ActivatedRoute) {
+  constructor() {
   }
 
+  ngOnInit(): void {
+  }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(){
     this.speedometer.gauge.options.value = this.speedValue;
     this.speedometer.gauge.update();
 
@@ -77,10 +75,11 @@ export class AppComponent {
     this.changeHood();
 
     this.subscription = this.source.subscribe(() => this.blinkDirection());
+    this.randomFuel();
   }
 
   changeSpeedometer(givenValue: number){
-      this.speedometer.value = givenValue;
+    this.speedometer.value = givenValue;
   }
 
   changeTachometer(givenValue: number){
@@ -233,6 +232,7 @@ export class AppComponent {
   }
 
   blinkDirection() {
+    console.log("blink - direction is "+this.direction);
     if (this.direction == "right") {
       if (!this.arrowOn) {
         // @ts-ignore
@@ -259,6 +259,5 @@ export class AppComponent {
       this.arrowOn = false;
     }
   }
-
 
 }
